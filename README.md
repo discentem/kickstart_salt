@@ -2,6 +2,8 @@
 
 `kickstart-salt.py` is a fancy wrapper around [bootstrap-salt.sh](https://github.com/saltstack/salt-bootstrap/blob/stable/bootstrap-salt.sh) and [bootstrap-salt.ps1](https://github.com/saltstack/salt-bootstrap/blob/stable/bootstrap-salt.ps1) for bootstrapping Salt minions (Centos and Windows Server) and masters (Centos).
 
+Right now it only supports doing this in Google Compute Engine, but it should be easily extensible to other cloud platforms.
+
 ### High Level Overview
 `kickstart-salt.py` will perform the following tasks on Centos and Windows Server, with arguments retrieved from [Google Compute Engine Instance metadata](https://cloud.google.com/compute/docs/storing-retrieving-metadata):
 
