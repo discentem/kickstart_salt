@@ -12,3 +12,11 @@ jobs:
            pip install pyyaml
            pip install deep_merge
            pip install requests
+     - run:
+         name: Build kickstart-salt binary
+         command: |
+           pyinstaller ./kickstart-salt.py --onefile
+     - run:
+         name: list artifacts
+         command: |
+           ls -la
