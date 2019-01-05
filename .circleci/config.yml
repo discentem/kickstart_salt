@@ -9,6 +9,6 @@ jobs:
          name: Install kickstart-salt dependencies
          command: |
            pip install pyinstaller
-           pip install yaml
+           pip install pyyaml
            pip install deep_merge
            pip install requests
