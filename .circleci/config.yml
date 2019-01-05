@@ -6,6 +6,6 @@ jobs:
    steps:
      - checkout
      - run:
-         name: whoami
+         name: Install PyInstaller
          command: |
-           whoami
+           apt-get install pyinstaller
