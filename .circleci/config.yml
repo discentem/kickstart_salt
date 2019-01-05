@@ -6,6 +6,9 @@ jobs:
    steps:
      - checkout
      - run:
-         name: Install PyInstaller
+         name: Install kickstart-salt dependencies
          command: |
            pip install pyinstaller
+           pip install yaml
+           pip install deep_merge
+           pip install requests
