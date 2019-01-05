@@ -8,4 +8,4 @@ jobs:
      - run:
          name: Install PyInstaller
          command: |
-           apt-get update && apt-get install pyinstaller
+           pip install pyinstaller
