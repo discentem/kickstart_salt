@@ -1,6 +1,6 @@
 [![CircleCI](https://circleci.com/gh/discentem/kickstart-salt.svg?style=svg)](https://circleci.com/gh/discentem/kickstart-salt)
 
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/discentem/kickstart-salt?retina=true)](https://ci.appveyor.com/api/projects/status/github/discentem/kickstart-salt)
+[![AppVeyor](https://ci.appveyor.com/api/projects/status/github/discentem/kickstart-salt?retina=true)](https://ci.appveyor.com/project/discentem/kickstart-salt)
 
 ## What is kickstart-salt.py?
 
