@@ -1,5 +1,7 @@
 [![CircleCI](https://circleci.com/gh/discentem/kickstart-salt.svg?style=svg)](https://circleci.com/gh/discentem/kickstart-salt)
 
+[AppVeyor](https://ci.appveyor.com/api/projects/status/github/discentem/kickstart-salt)
+
 ## What is kickstart-salt.py?
 
 `kickstart-salt.py` is a fancy wrapper around [bootstrap-salt.sh](https://github.com/saltstack/salt-bootstrap/blob/stable/bootstrap-salt.sh) and [bootstrap-salt.ps1](https://github.com/saltstack/salt-bootstrap/blob/stable/bootstrap-salt.ps1) for bootstrapping Salt minions (Centos and Windows Server) and masters (Centos).
