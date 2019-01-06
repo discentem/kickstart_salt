@@ -1,7 +1,7 @@
 image: Visual Studio 2017
 clone_folder: c:\projects\kickstart-salt
 install:
-  - ps: ls c:\python36\bin
-  - ps: c:\python36\bin\pip.exe -m install pyinstaller pyyaml deep_merge requests
+  - ps: ls c:\python37
+  - ps: c:\python37\bin\pip.exe -m install pyinstaller pyyaml deep_merge requests
   - ps: pyinstaller c:\projects\kickstart-salt.py --onefile
   - ps: ls c:\projects\kickstart-salt
