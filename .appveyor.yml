@@ -1,12 +1,10 @@
 image: Visual Studio 2017
 clone_folder: c:\projects\kickstart-salt
 install:
-  - ps: |
+  - ps: "
     pip install pyinstaller
     pip install pyyaml
     pip install deep_merge
-    pip install requests
-
-  - ps: |
-    pyinstaller c:\projects\kickstart-salt.py --onefile
+    pip install requests"
+  - ps: pyinstaller c:\projects\kickstart-salt.py --onefile
   - ps: ls c:\projects\kickstart-salt
