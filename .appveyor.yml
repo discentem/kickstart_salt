@@ -1,5 +1,5 @@
 image: Visual Studio 2017
-clone_folder: c:\projects\kickstart-salt
+clone_folder: c:\projects\kickstart_salt
 install:
   - cmd: set PATH=%PATH%;C:\python37\Scripts\
   - ps: c:\python37\python.exe -m pip install pyinstaller pyyaml deep_merge requests
@@ -7,4 +7,4 @@ install:
 cache:
   - C:\python37\ -> kickstart_salt_imports.py
 
-build_script: pyinstaller c:\projects\kickstart-salt\kickstart-salt.py --onefile
+build_script: pyinstaller c:\projects\kickstart_salt\kickstart_salt.py --onefile
