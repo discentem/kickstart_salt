@@ -6,5 +6,4 @@ install:
   - ps: ls c:\projects\
   - ps: ls c:\projects\kickstart-salt
 
-  - build_script:
-    - ps: pyinstaller c:\projects\kickstart-salt.py --onefile
+  - build_script: pyinstaller c:\projects\kickstart-salt.py --onefile
