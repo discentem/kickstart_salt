@@ -1,22 +1,6 @@
 # pylint: disable=C0111
 #!/usr/bin/python
-from __future__ import print_function
-import os
-import subprocess
-import hashlib
-import json
-import pprint
-import sys
-import platform
-import pathlib
-import yaml
-import deep_merge
-import requests
-
-if sys.version_info[0] < 3:
-    import urllib
-else:
-    import urllib.request as urllib
+import kickstart_salt_imports
 
 # Borrowed some code from
 #  https://github.com/facebook/IT-CPE/blob/master/chef/tools/chef_bootstrap.py
