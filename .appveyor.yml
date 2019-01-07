@@ -1,5 +1,10 @@
 image: Visual Studio 2017
 
+only_commits:
+  files:
+    - kickstart_salt_imports.py
+    - kickstart_salt.py
+
 clone_folder: c:\projects\kickstart_salt
 install:
   - cmd: set PATH=%PATH%;C:\python37\Scripts\
