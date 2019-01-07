@@ -5,4 +5,6 @@ install:
   - ps: c:\python37\python.exe -m pip install pyinstaller pyyaml deep_merge requests
   - ps: ls c:\projects\
   - ps: ls c:\projects\kickstart-salt
-  # - ps: pyinstaller c:\projects\kickstart-salt.py --onefile
+
+  - build_script:
+    - ps: pyinstaller c:\projects\kickstart-salt.py --onefile
