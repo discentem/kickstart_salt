@@ -20,7 +20,7 @@ deploy:
   description: 'Release description'
   provider: GitHub
   auth_token:
-    secure: tcwfBCNEe72Kxq4/gju+r4AFCvzPe1cgqSLyKgvsB8uc7588IZXRrdFuJyMi0wsD
+    secure: tdeHjQ/eql1WYbTzrLhR6SnCeAPwEkRQDZPAXZownmaVTra81/TUWpiXc5zvMzE4
   artifact: dist/kickstart-salt
   draft: false
   prerelease: false
