@@ -20,7 +20,7 @@ on_finish:
   - ps: ls c:\projects\kickstart_salt\dist
 
 artifacts:
-  - path: dist\
+  - path: dist\kickstart_salt.exe
     name: Releases
 
 deploy:
