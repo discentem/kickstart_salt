@@ -1,6 +1,6 @@
 # pylint: disable=C0111
 #!/usr/bin/python
-import kickstart_salt_imports
+from kickstart_salt_imports import *
 
 # Borrowed some code from
 #  https://github.com/facebook/IT-CPE/blob/master/chef/tools/chef_bootstrap.py
@@ -16,7 +16,12 @@ class GCEMetadataWrapper:
 
     def get_metadata_value(self, url):
         '''Executes Get request against GCP Metadata server with proper headers'''
-        request = requests.get(url, headers={"Metadata-Flavor":"Google"})
+        try:
+            request = requests.get(url, headers={"Metadata-Flavor":"Google"})
+        except requests.exceptions.ConnectionError as err:
+            print(err, end="\n\n")
+            print("This is likely not a GCE server.")
+            exit(1)
         return self.return_request(request)
 
     def get_instance_metadata_value(self, key):
