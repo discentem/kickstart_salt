@@ -9,7 +9,6 @@ clone_folder: c:\projects\kickstart_salt
 install:
   - cmd: set PATH=%PATH%;C:\python37\Scripts\
   - ps: c:\python37\python.exe -m pip install pyinstaller pyyaml deep_merge requests
-  # - ps: c:\python37\python.exe c:\projects\kickstart_salt\setup.py install
 
 build_script: pyinstaller c:\projects\kickstart_salt\kickstart_salt.py --onefile
 
@@ -17,11 +16,12 @@ build_script: pyinstaller c:\projects\kickstart_salt\kickstart_salt.py --onefile
 #   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 deploy:
-  release: kickstart_salt-v$(appveyor_build_version)
+  release: kickstart_salt-$(appveyor_repo_branch)-v$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   auth_token:
     secure: tcwfBCNEe72Kxq4/gju+r4AFCvzPe1cgqSLyKgvsB8uc7588IZXRrdFuJyMi0wsD
+  artifact: dist/kickstart-salt
   draft: false
   prerelease: false
   on:
