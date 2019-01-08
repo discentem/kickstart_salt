@@ -40,7 +40,7 @@ python36 -m pip install deep_merge
 
 ### Usage Guide (Google Compute Engine)
 
-To bootstrap a new Compute Engine VM with kickstart-salt, you just need to provide a few Google Compute Engine metadata keys: `startup-script`, `dns`, and `kickstart_salt_args`.
+To bootstrap a new Compute Engine VM with kickstart-salt, you just need to provide two Google Compute Engine metadata keys: `startup-script` and `kickstart_salt_args`. You may also optionally provide `dns`.
 
 ##### startup-script
 
@@ -58,21 +58,6 @@ python36 -m pip install deep_merge
 
 curl -k "https://sourcecontrol.co.org/path/to/raw/python/file/kickstart-salt.py" > /tmp/kickstart-salt.py
 sudo /usr/bin/python36 /tmp/kickstart-salt.py
-```
-
-##### dns
-
-kickstart-salt expects `dns` to exist as a _project metadata key_ or a _instance metadata key_. If it exists in both places, _instance metadata_ will override and take precedence. `dns` should be a valid JSON dictionary with a key called `entries` who's value is a list of (dns) entries. Here's an example of a `dns` JSON blob:
-
-```JSON
-{
-  "dns": {
-    "entries": [
-      "127.0.0.1",
-      "127.0.0.2"
-    ]
-  }
-}
 ```
 
 ##### kickstart_salt_args
@@ -185,3 +170,18 @@ kickstart-salt expects this merged dictionary to have the following keys and val
   ```
 
 <br />
+
+##### dns
+
+`dns` can optionally exist as _project metadata key_ or a _instance metadata key_. If it exists in both places, _instance metadata_ will override and take precedence. `dns` should be a valid JSON dictionary with a key called `entries` who's value is a list of (dns) entries. Here's an example of a `dns` JSON blob:
+
+```JSON
+{
+  "dns": {
+    "entries": [
+      "127.0.0.1",
+      "127.0.0.2"
+    ]
+  }
+}
+```

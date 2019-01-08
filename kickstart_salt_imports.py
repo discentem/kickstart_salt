@@ -7,6 +7,7 @@ import pprint
 import sys
 import platform
 import pathlib
+import logging
 import yaml
 import deep_merge
 import requests

@@ -170,7 +170,7 @@ class KickstartSalt:
     def set_dns_windows(self, dns_entries):
         '''Use powershell to set DNS'''
         if dns_entries is None:
-            raise ValueError("dns_entries can't be None")
+            logging.warning("dns_entries not provided.")
         elif len(dns_entries) > 2:
             print("Info: dns_entries has more than 2 entries.", end=' ')
             print("Windows will only utilize the first 2 entries.")
@@ -420,7 +420,7 @@ class KickstartSaltGoogleComputeEngine(KickstartSalt):
         elif dns_instance_metadata and (dns_project_metadata is None):
             dns_metadata = dns_instance_metadata
         else:
-            raise ValueError("dns_project_metadata and dns_instance_metadata are both none. This is not allowed.")
+            logging.warning("dns_project_metadata and dns_instance_metadata are both none.")
 
         if platform.system() == "Windows":
             return dns_metadata['entries']
