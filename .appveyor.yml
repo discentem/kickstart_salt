@@ -19,13 +19,17 @@ build_script: pyinstaller c:\projects\kickstart_salt\kickstart_salt.py --onefile
 on_finish:
   - ps: ls c:\projects\kickstart_salt\dist
 
+artifacts:
+  - path: c:\projects\kickstart_salt\dist\
+    name: Releases
+
 deploy:
   release: kickstart_salt-$(appveyor_repo_branch)-v$(appveyor_build_version)
   description: 'Release description'
   provider: GitHub
   auth_token:
     secure: tdeHjQ/eql1WYbTzrLhR6SnCeAPwEkRQDZPAXZownmaVTra81/TUWpiXc5zvMzE4
-  artifact: c:\projects\kickstart_salt\dist\kickstart_salt.exe
+  artifact: kickstart_salt.exe
   draft: false
   prerelease: false
   on:
