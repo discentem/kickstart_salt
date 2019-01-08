@@ -61,6 +61,7 @@ class KickstartSalt:
         except KeyError:
             print("No value is defined for data['{0}']".format(attr))
             exit(1)
+            
     # pylint: disable=R0913
     def __init__(self,
                  dns_entries=None,
@@ -72,6 +73,7 @@ class KickstartSalt:
                          "Linux":"sha256"
                         },
                         platform.system()
+                    )
                  ),
                  bootstrap_salt_json_args=None,
                  etc_salt_master_d=None,
