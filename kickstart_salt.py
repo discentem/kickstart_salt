@@ -54,12 +54,25 @@ class GCEMetadataWrapper:
 # pylint: disable=R0902
 class KickstartSalt:
     '''A class to kickstart bootstrap-salt.sh!'''
+    @staticmethod
+    def filter_by(data, attr=platform.system()):
+        try:
+            return data[attr]
+        except KeyError:
+            print("No value is defined for data['{0}']".format(attr))
+            exit(1)
     # pylint: disable=R0913
     def __init__(self,
                  dns_entries=None,
                  bootstrap_salt_save_path=None,
                  bootstrap_salt_expected_hash=None,
-                 bootstrap_salt_hash_type=None,
+                 bootstrap_salt_hash_type=(
+                    self.filter_by(
+                        {"Windows":"md5",
+                         "Linux":"sha256"
+                        },
+                        platform.system()
+                 ),
                  bootstrap_salt_json_args=None,
                  etc_salt_master_d=None,
                  salt_master_autosign_patterns=None,
@@ -438,14 +451,6 @@ class KickstartSaltGoogleComputeEngine(KickstartSalt):
 
         return dns_list
 
-    @staticmethod
-    def filter_by(data, attr=platform.system()):
-        try:
-            return data[attr]
-        except KeyError:
-            print("No value is defined for data['{0}']".format(attr))
-            exit(1)
-
     def __init__(self):
         self.gce_metadata = GCEMetadataWrapper()
         self.dns_entries = self.generate_dns_entries()
@@ -507,7 +512,10 @@ class KickstartSaltGoogleComputeEngine(KickstartSalt):
                                    )
                                ),
                                bootstrap_salt_expected_hash=(
-                                   self.kickstart_salt_args['bootstrap_salt_expected_hash']
+                                   self.kickstart_salt_args.get(
+                                       'bootstrap_salt_expected_hash',
+                                       None
+                                   )
                                ),
                                bootstrap_salt_hash_type=(
                                    self.kickstart_salt_args['bootstrap_salt_hash_type']

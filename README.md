@@ -96,7 +96,7 @@ kickstart-salt expects this merged dictionary to have the following keys and val
 
 <br />
 
-- `bootstrap_salt_hash_type` *(string), (optional)*: must be either `"sha256"` or `"md5"`. Defaults to `"sha256"` if not provided.
+- `bootstrap_salt_hash_type` *(string), (optional)*: must be either `"sha256"` or `"md5"`. Defaults to `"sha256"` on Linux and `"md5"` on Windows if not provided.
 
 <br />
 
