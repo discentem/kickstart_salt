@@ -61,20 +61,13 @@ class KickstartSalt:
         except KeyError:
             print("No value is defined for data['{0}']".format(attr))
             exit(1)
-            
+
     # pylint: disable=R0913
     def __init__(self,
                  dns_entries=None,
                  bootstrap_salt_save_path=None,
                  bootstrap_salt_expected_hash=None,
-                 bootstrap_salt_hash_type=(
-                    self.filter_by(
-                        {"Windows":"md5",
-                         "Linux":"sha256"
-                        },
-                        platform.system()
-                    )
-                 ),
+                 bootstrap_salt_hash_type=None,
                  bootstrap_salt_json_args=None,
                  etc_salt_master_d=None,
                  salt_master_autosign_patterns=None,
@@ -85,7 +78,18 @@ class KickstartSalt:
         self.dns_entries = dns_entries
         self.bootstrap_salt_save_path = bootstrap_salt_save_path
         self.bootstrap_salt_expected_hash = bootstrap_salt_expected_hash
+
         self.bootstrap_salt_hash_type = bootstrap_salt_hash_type
+        if not self.bootstrap_salt_hash_type:
+            self.bootstrap_salt_hash_type = (
+               self.filter_by(
+                   {"Windows":"md5",
+                    "Linux":"sha256"
+                   },
+                   platform.system()
+               )
+            )
+            
         self.bootstrap_salt_json_args = bootstrap_salt_json_args
         self.etc_salt_master_d = etc_salt_master_d
         self.salt_master_autosign_patterns = salt_master_autosign_patterns
